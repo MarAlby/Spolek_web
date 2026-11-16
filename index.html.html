@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spolek pro ochranu krajiny Vinařice - Záboří nad Labem - Svatá Kateřina, z. s.</title>
+  <meta name="description" content="Chráníme krajinu, životní prostředí a práva obyvatel dotčených dopravní infrastrukturou v okolí Vinařic, Záboří nad Labem a Svaté Kateřiny.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest-dark: #1e3522;
+      --forest-main: #2d4c31;
+      --forest-light: #436b48;
+      --sage-tint: #eef3ee;
+      --sage-soft: #e2ebe2;
+      --cream-bg: #f9fbf9;
+      --white: #ffffff;
+      --text-main: #242924;
+      --text-muted: #556355;
+      --border-soft: #d7e2d7;
+      --sun-gold: #e09f3e;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-sm: 0 2px 10px rgba(30, 53, 34, 0.05);
+      --shadow-md: 0 10px 30px rgba(30, 53, 34, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--cream-bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Lora', Georgia, serif;
+      color: var(--forest-dark);
+      line-height: 1.25;
+    }
+
+    a {
+      color: var(--forest-main);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigace */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249, 251, 249, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--forest-main), var(--forest-dark));
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(45, 76, 49, 0.22);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--forest-dark);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-text small {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--forest-main);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover {
+      background-color: var(--sage-tint);
+      color: var(--forest-dark);
+    }
+
+    .nav-links a.btn-nav {
+      background-color: var(--forest-main);
+      color: var(--white);
+      margin-left: 6px;
+    }
+
+    .nav-links a.btn-nav:hover {
+      background-color: var(--forest-dark);
+    }
+
+    /* Úvodní hero sekce */
+    .hero {
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      padding: 72px 0;
+      color: var(--white);
+      background-color: var(--forest-dark);
+      background-image: 
+        linear-gradient(105deg, rgba(24, 42, 27, 0.84) 0%, rgba(45, 76, 49, 0.62) 55%, rgba(30, 53, 34, 0.35) 100%),
+        url('krajina.jpg');
+      background-size: cover;
+      background-position: center 45%;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 20px;
+      color: #f4f8f4;
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 2.95rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 30px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--sun-gold);
+      color: #162418;
+      font-weight: 700;
+      padding: 13px 24px;
+      border-radius: var(--radius-md);
+      font-size: 0.96rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: #ebb055;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--white);
+      font-weight: 600;
+      padding: 13px 22px;
+      border-radius: var(--radius-md);
+      font-size: 0.96rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* Sekce obecně */
+    section {
+      padding: 68px 0;
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--forest-main);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 680px;
+      font-size: 1.02rem;
+    }
+
+    /* Dvousloupcová mřížka O spolku & Členství */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-green-tint {
+      background: linear-gradient(180deg, var(--white) 0%, var(--sage-tint) 100%);
+      border-color: #cfe0cf;
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--sage-tint);
+      color: var(--forest-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .card-green-tint .card-icon {
+      background: rgba(45, 76, 49, 0.14);
+      color: var(--forest-dark);
+    }
+
+    .card h2 {
+      font-size: 1.45rem;
+      margin-bottom: 16px;
+    }
+
+    .purpose-list {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+
+    .purpose-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .purpose-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--forest-light);
+      box-shadow: 0 0 0 4px var(--sage-tint);
+    }
+
+    .card-note {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .card p + p {
+      margin-top: 14px;
+    }
+
+    .whatsapp-box {
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: var(--white);
+      border: 1px solid #c9dac9;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-box span {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--forest-main);
+      color: var(--white);
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .btn-wa:hover {
+      background: var(--forest-dark);
+    }
+
+    /* Sekce Aktuálně a Nová silnice */
+    .bg-tinted {
+      background-color: var(--sage-tint);
+      border-top: 1px solid #dce5dc;
+      border-bottom: 1px solid #dce5dc;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      color: var(--forest-main);
+      font-size: 0.9rem;
+      background: var(--sage-tint);
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .timeline-body h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Karty témat u silnice */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .topic-card {
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-top: 4px solid var(--forest-main);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .topic-card.dark-green-accent {
+      border-top-color: var(--forest-dark);
+    }
+
+    .topic-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .topic-card p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    /* Formulář vstupu do spolku */
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .form-info p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 0.96rem;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--forest-dark);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #c5d4c5;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: var(--cream-bg);
+      color: var(--text-main);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--forest-main);
+      background: var(--white);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0 22px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .checkbox-row input {
+      margin-top: 4px;
+      accent-color: var(--forest-main);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--forest-main);
+      color: var(--white);
+      border: none;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--forest-dark);
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: var(--sage-tint);
+      border: 1px solid var(--forest-light);
+      color: var(--forest-dark);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    /* Patička */
+    footer {
+      background-color: var(--forest-dark);
+      color: #e4ede4;
+      padding: 48px 0 36px;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .footer-brand strong {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      color: var(--white);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-meta {
+      text-align: right;
+      color: #c2d4c2;
+      font-size: 0.86rem;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.84rem;
+      color: #a3bca3;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2, .grid-3, .form-wrap {
+        grid-template-columns: 1fr;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .timeline-date {
+        width: fit-content;
+      }
+      .footer-meta {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .hero {
+        padding: 54px 0 64px;
+        min-height: 460px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigace -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#uvod" class="brand">
+        <div class="brand-badge">VK</div>
+        <div class="brand-text">
+          <strong>Spolek pro ochranu krajiny</strong>
+          <small>Vinařice – Záboří nad Labem – Svatá Kateřina</small>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Hlavní navigace">
+        <a href="#o-spolku">O spolku</a>
+        <a href="#aktualne">Aktuálně</a>
+        <a href="#silnice">Nová silnice</a>
+        <a href="#vstup" class="btn-nav">Vstup do spolku</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Úvodní Hero sekce -->
+    <section id="uvod" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-pill">Zapsaný spolek • Okres Kutná Hora</div>
+          <h1>Spolek pro ochranu krajiny Vinařice – Záboří nad Labem – Svatá Kateřina</h1>
+          <p>
+            Chráníme krajinu, životní prostředí a práva obyvatel dotčených dopravní infrastrukturou v okolí Vinařic, Záboří nad Labem a Svaté Kateřiny.
+          </p>
+          <div class="hero-actions">
+            <a href="#vstup" class="btn-primary">Připojit se ke spolku</a>
+            <a href="#aktualne" class="btn-secondary">Sledovat aktuální řízení</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekce O spolku a Členství -->
+    <section id="o-spolku">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Poslání a komunita</span>
+          <h2>Kdo jsme a o co usilujeme</h2>
+          <p>Sdružujeme obyvatele a přátele naší krajiny, kterým záleží na šetrném rozvoji regionu a zachování přírodního rázu Polabí.</p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Účel spolku -->
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22v-9"></path>
+                <path d="M15.14 8.86a4 4 0 0 0-6.28 0"></path>
+                <path d="M17.5 13a5.5 5.5 0 0 0-11 0c0 2.5 2.5 4 5.5 4s5.5-1.5 5.5-4Z"></path>
+              </svg>
+            </div>
+            <h2>Účel spolku</h2>
+            <ul class="purpose-list">
+              <li>ochrana životního prostředí a krajiny,</li>
+              <li>ochrana práv obyvatel dotčených dopravní infrastrukturou,</li>
+              <li>aktivní účast v procesech územního plánování, EIA a stavebních řízeních,</li>
+              <li>prosazování šetrných variant dopravních staveb,</li>
+              <li>informování veřejnosti a spolupráce s obcemi.</li>
+            </ul>
+            <p class="card-note">
+              Spolek může vyvíjet i další činnosti související s ochranou veřejných zájmů.
+            </p>
+          </article>
+
+          <!-- Členství ve spolku -->
+          <article class="card card-green-tint">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h2>Členství ve spolku</h2>
+            <p>
+              Členem spolku se může stát každá fyzická osoba, která souhlasí s cíli spolku a je ochotna se aktivně podílet na jeho činnosti. Členství je dobrovolné.
+            </p>
+            <p>
+              Pro vstup do spolku vyplňte <a href="#vstup"><strong>kontaktní formulář</strong></a> níže a my Vám pošleme přístup do členské komunikace i upozornění na důležité kroky.
+            </p>
+
+            <div class="whatsapp-box">
+              <span>Rychlá diskuze a novinky mezi členy:</span>
+              <a href="https://chat.whatsapp.com/JigNkU5rHK382Zag02JyHT" target="_blank" rel="noopener noreferrer" class="btn-wa">
+                Otevřít WhatsApp skupinu
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekce Aktuálně -->
+    <section id="aktualne" class="bg-tinted">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Aktuality a oznámení</span>
+          <h2>Co se právě děje</h2>
+          <p>Přehled klíčových kroků spolku, probíhajících správních řízení a termínů pro podávání připomínek.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Aktuálně 2026</div>
+            <div class="timeline-body">
+              <h3>Zahájení řízení a účast spolku</h3>
+              <p>Spolek uplatňuje svá zákonná práva účastníka řízení, sleduje úřední desky dotčených obcí i krajského úřadu a připravuje podklady pro ochranu krajiny a vodních zdrojů.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Červen 2026</div>
+            <div class="timeline-body">
+              <h3>Vznik a registrace zapsaného spolku</h3>
+              <p>Zápisem u Městského soudu v Praze (sp. zn. L 82137) vznikl oficiální spolek pro obranu krajiny a obyvatel Vinařic, Záboří nad Labem a Svaté Kateřiny.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekce Nová silnice -->
+    <section id="silnice">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Dopravní infrastruktura</span>
+          <h2>Nová silnice a ochrana našeho území</h2>
+          <p>Hlavní oblasti, na které se při posuzování dopravních staveb v okolí Vinařic, Záboří nad Labem a Svaté Kateřiny zaměřujeme.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="topic-card">
+            <h3>Ochrana přírody a památných stromů</h3>
+            <p>Prosazujeme respektování přírodních hodnot území, biokoridorů a vzrostlé zeleně v bezprostředním okolí navrhovaných tras.</p>
+          </div>
+
+          <div class="topic-card dark-green-accent">
+            <h3>Podzemní vody a studny</h3>
+            <p>Dohlížíme na důkladné posouzení hydrogeologických poměrů tak, aby nedošlo k ohrožení zdrojů pitné vody pro místní domácnosti.</p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Kvalita života a šetrné varianty</h3>
+            <p>Požadujeme transparentní vyhodnocení hlukové a emisní zátěže a hledání řešení, která minimalizují dopad na obyvatele obcí.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekce Vstup do spolku -->
+    <section id="vstup" class="bg-tinted">
+      <div class="container">
+        <div class="form-wrap">
+          <div class="form-info">
+            <span class="section-tag">Zapojte se</span>
+            <h3>Vstup do spolku a odběr novinek</h3>
+            <p>
+              Vyplněním formuláře nám dáte vědět, že máte zájem o členství ve spolku nebo o zasílání důležitých informací a notifikací k probíhajícím řízením.
+            </p>
+            <p>
+              Po odeslání se Vám ozveme s potvrzením a přístupem do členské komunikace.
+            </p>
+          </div>
+
+          <form id="memberForm">
+            <div class="form-group">
+              <label for="fullName">Jméno a příjmení *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Např. Jan Novák" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail pro zasílání notifikací *</label>
+              <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+            </div>
+
+            <div class="form-group">
+              <label for="village">Obec / lokalita</label>
+              <select id="village" name="village">
+                <option value="Vinařice">Vinařice</option>
+                <option value="Záboří nad Labem">Záboří nad Labem</option>
+                <option value="Svatá Kateřina">Svatá Kateřina</option>
+                <option value="Jiné">Jiné</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="note">Poznámka (nepovinné)</label>
+              <textarea id="note" name="note" rows="3" placeholder="Chcete se zapojit konkrétním způsobem nebo máte dotaz?"></textarea>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="consent" required>
+              <label for="consent">Souhlasím se zpracováním uvedených údajů pro účely evidence členů a zasílání informací spolku.</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Odeslat přihlášku / žádost o novinky</button>
+            <div id="formSuccess" class="form-success">
+              Děkujeme! Vaše údaje byly zaznamenány. Brzy se Vám ozveme s informacemi do členské komunikace.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Patička -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Spolek pro ochranu krajiny Vinařice – Záboří nad Labem – Svatá Kateřina, z. s.</strong>
+          <span>Ochrana přírody, krajiny a práv obyvatel regionu</span>
+        </div>
+        <div class="footer-meta">
+          <div>Spisová značka: <strong>L 82137</strong> vedená u Městského soudu v Praze</div>
+          <div>Identifikační číslo (IČO): <strong>29628148</strong></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Spolek pro ochranu krajiny Vinařice – Záboří nad Labem – Svatá Kateřina, z. s.</span>
+        <span>Vinařice • Záboří nad Labem • Svatá Kateřina</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const memberForm = document.getElementById('memberForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    memberForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formSuccess.style.display = 'block';
+      memberForm.reset();
+    });
+  </script>
+</body>
+</html>
